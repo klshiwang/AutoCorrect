@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.js"></script>
+    <style>
+        @keyframes identifier {}
+    </style>
+</head>
+
+<body>
+
+    <script>
+        onload = function() {
+            $.ajax({
+                // type: "get",
+                // url: "data/homeworkList.json", //模拟数据
+
+                //从网站请求作业列表
+                type:"post",
+                url: "https://www.galayun.com/Admin/AssignWork/IndexList",  //请求作业列表
+                data: {
+                    page: 1,
+                    rows: "100"
+                },
+
+                success: function(data) {
+                    console.log(data)
+                    var homeworkList = data.rows;
+                    console.log(homeworkList);
+
+                    // 筛选作业列表中已经截止的作业
+                    var doneHomeworkList = []; //已经截止的作业列表
+                    var nowTime = new Date();
+                    for (var i in homeworkList) {
+                        var endTime = new Date(homeworkList[i].EndTime);
+                        if (endTime.getTime() < nowTime.getTime()) {
+                            doneHomeworkList.push(homeworkList[i]);
+                        }
+                    }
+                    console.log(doneHomeworkList);   //doneHomeworkList 所有已经完成的作业列表数组
+                    //get请求如下地址获取作业的题目列表 56699为作业列表中的作业id
+                    // https://www.galayun.com/Admin/AssignWork/CorrectIndex?Id=56699&Set=null
+                    //get请求如下地址获取对应作业中的指定题目的学生作业列表   id为作业id   qid为问题id
+                    //https://www.galayun.com/Admin/WorkAnswer/Management?Id=56756&Qid=1750  
+
+
+
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

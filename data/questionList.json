@@ -1,0 +1,20 @@
+{
+    "rows": [{
+        "Id": 56699,
+        "WorkType": 1,
+        "QuestionId": 7053,
+        "Title": "jquery中的load方法一般怎么用的",
+        "Count": 1,
+        "RandCode": "VW7F8Y",
+        "AssistantState": "未批改"
+    }, {
+        "Id": 56699,
+        "WorkType": 1,
+        "QuestionId": 7054,
+        "Title": "例如 单击超链接后会自动跳转，单击\u0026quot;提交\u0026quot;按钮后表单会提交等，有时候我想阻止这些默认的行为，该怎么办",
+        "Count": 1,
+        "RandCode": "VW7F8Y",
+        "AssistantState": "未批改"
+    }],
+    "total": 2
+}
